@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flow</title>
+    <link rel="stylesheet" href="./main-settings.css">
+    <link rel="stylesheet" href="./search-page/search.css">
+    <link rel="stylesheet" href="./new-playlist.css">
+    <link rel="stylesheet" href="./search-page/mood.css">
+    <link rel="stylesheet" href="./login-users.css">
+    <script src="./functions.js" defer></script>
+    <link rel="stylesheet" href="./player.css">
+</head>
+
+<body>
+
+
+    <!---------   NAVIGATION     ---------->
+
+
+    <nav class="nav-bar">
+        <ul class="nav-bar-list">
+            <li>
+                <div class="logotype"></div>
+            </li>
+            <li>
+                <a class="nav_links" href="../index.html">Поиск</a>
+            </li>
+            <li>
+                <a class="nav_links" href="./main-page/main-page.html">Главная</a>
+            </li>
+            <li>
+                <a class="nav_links" href="./playlists/playlists.html">Плейлисты</a>
+            </li>
+            <li id="create-playlist">
+                <div class="nav_links nav_pink">Создать плейлист</div>
+                <div class="circle_plus"></div>
+            </li>
+        </ul>
+    </nav>
+
+    <!---------   MAIN     ---------->
+
+
+    <main class="main-container">
+
+        <!---------   HEADER: SEARCH-BAR + PROFILE     ---------->
+        <header class="top-content">
+            <div class="search-container">
+                <input type="text" placeholder="Что ищем?" class="search-input">
+                <div class="search-button"></div>
+            </div>
+            <div id="profileContainer">
+                <div class="icon-container">
+                    <div id="profileIcon"></div>
+                    <div id="profileName">Гость</div>
+                </div>
+                <div id="profileMenu" style="display: none;">
+                    <label for="changeAvatar" class="avatar-img-label profile-option"></label>
+                    <input type="file" id="changeAvatar" accept="image/*" hidden>
+                    <div class="exit-button profile-option" onclick="logout()"></div>
+                </div>
+            </div>
+        </header>
+
+        <!---------   LOGIN USERS  WINDOW     ---------->
+        <div id="loginModal" class="modal-user" style="display:none;">
+            <div class="modal-user-content">
+                <div class="modal-header">
+                    <h2>Вход</h2>
+                    <span class="close-user" onclick="closeModal()">&times;</span>
+                </div>
+                <input type="text" id="username" placeholder="Логин" class="regis-input">
+                <input type="password" id="password" placeholder="Пароль" class="regis-input">
+                <button onclick="checkLogin()">Войти</button>
+                <p id="errorMessage" style="color: red; display: none;">Неверный логин или пароль!</p>
+                <p style="margin-top: 2vh;">Нет аккаунта? <a class="create-account"
+                        href="/files/registration/registration.html"
+                        style="color: var(--accent); cursor: pointer;">Создать</a></p>
+            </div>
+        </div>
+
+        <!---------   MOOD SECTION     ---------->
+
+        <div id="moodModal" class="modal-mood">
+            <div class="modal-mood-content">
+                <span class="close" onclick="closeMoodModal()">&times;</span>
+                <div class="mood-item" id="mood-it"></div>
+                <section class="mood-songs">
+                    <div class="grid-moods-container" id="selectedSongs"></div>
+                </section>
+            </div>
+        </div>
+
+        <section class="mood">
+            <div class="title">Настроение</div>
+            <div class="mood-container">
+                <div class="mood-item" id="sad-mood">Грустное</div>
+                <div class="mood-item" id="happy-mood">Веселое</div>
+                <div class="mood-item" id="calm-mood">Спокойное</div>
+            </div>
+        </section>
+
+        <!---------   CHARTS SECTION     ---------->
+
+        <section class="grid">
+            <div class="title">Чарты</div>
+
+            <div class="grid-container">
+
+                <div class="grid-item">
+                    <img src="/images/covers/charts/noize mc - nocomments.png" alt="artist" class="track-artist-image">
+                    <div class="item-info-cover">
+                        <div class="track-info track-name-charts">В темноте</div>
+                        <div class="track-info track-artist track-artist-charts">Noize MC</div>
+                    </div>
+                    <img src="/images/icons/play-white.png" alt="play-icon" class="play-icon">
+                </div>
+
+                <div class="grid-item">
+                    <img src="/images/covers/charts/idst - Душнила.png" alt="artist" class="track-artist-image">
+                    <div class="item-info-cover">
+                        <div class="track-info track-name-charts">Душнила</div>
+                        <div class="track-info track-artist track-artist-charts">idst</div>
+                    </div>
+                    <img src="/images/icons/play-white.png" alt="play-icon" class="play-icon">
+                </div>
+
+                <div class="grid-item">
+                    <img src="/images/covers/charts/красные звезды - свобода2012.png" alt="artist"
+                        class="track-artist-image">
+                    <div class="item-info-cover">
+                        <div class="track-info track-name-charts">Тут нужен я</div>
+                        <div class="track-info track-artist track-artist-charts">Красные звезды</div>
+                    </div>
+                    <img src="/images/icons/play-white.png" alt="play-icon" class="play-icon">
+                </div>
+
+                <div class="grid-item">
+                    <img src="/images/covers/charts/ключевое слово - 78.png" alt="artist" class="track-artist-image">
+                    <div class="item-info-cover">
+                        <div class="track-info track-name-charts">Семь восьмых</div>
+                        <div class="track-info track-artist track-artist-charts">Ключевое слово</div>
+                    </div>
+                    <img src="/images/icons/play-white.png" alt="play-icon" class="play-icon">
+                </div>
+
+                <div class="grid-item">
+                    <img src="/images/covers/charts/radiohead - pablohoney.png" alt="artist" class="track-artist-image">
+                    <div class="item-info-cover">
+                        <div class="track-info track-name-charts">Creep</div>
+                        <div class="track-info track-artist track-artist-charts">Radiohead</div>
+                    </div>
+                    <img src="/images/icons/play-white.png" alt="play-icon" class="play-icon">
+                </div>
+
+                <div class="grid-item">
+                    <img src="/images/covers/charts/noize mc - thegreatesrhits.png" alt="artist"
+                        class="track-artist-image">
+                    <div class="item-info-cover">
+                        <div class="track-info track-name-charts">Мое море</div>
+                        <div class="track-info track-artist track-artist-charts">Noize MC</div>
+                    </div>
+                    <img src="/images/icons/play-white.png" alt="play-icon" class="play-icon">
+                </div>
+
+                <div class="grid-item">
+                    <img src="/images/covers/charts/noize mc - thegreatesrhits.png" alt="artist"
+                        class="track-artist-image">
+                    <div class="item-info-cover">
+                        <div class="track-info track-name-charts">Выдыхай</div>
+                        <div class="track-info track-artist track-artist-charts">Noize MC</div>
+                    </div>
+                    <img src="/images/icons/play-white.png" alt="play-icon" class="play-icon">
+                </div>
+
+                <div class="grid-item">
+                    <img src="/images/covers/charts/полухутенко - ребра.png" alt="artist" class="track-artist-image">
+                    <div class="item-info-cover">
+                        <div class="track-info track-name-charts">И это прийдет</div>
+                        <div class="track-info track-artist track-artist-charts">Гр. Полухутенко</div>
+                    </div>
+                    <img src="/images/icons/play-white.png" alt="play-icon" class="play-icon">
+                </div>
+
+                <div class="grid-item">
+                    <img src="/images/covers/charts/слава кппс - лпнл.png" alt="artist" class="track-artist-image">
+                    <div class="item-info-cover">
+                        <div class="track-info track-name-charts">Купидоны</div>
+                        <div class="track-info track-artist track-artist-charts">Слава КПСС</div>
+                    </div>
+                    <img src="/images/icons/play-white.png" alt="play-icon" class="play-icon">
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <!---------   CREATE PLAYLIST WINDOW     ---------->
+
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="up">
+                <div class="title">Создать плейлист</div>
+                <span class="close" id="closeModal">&times;</span>
+            </div>
+
+            <div class="create-cover">
+                <div class="left">
+                    <label for="cover-input" class="cover-img">
+                        <img id="cover-preview" src="" alt="Обложка" hidden>
+                    </label>
+                    <input type="file" id="cover-input" accept="image/*" hidden>
+                    <p class="subtitle">Обложка</p>
+                </div>
+
+                <div class="right">
+                    <input type="text" placeholder="Название плейлиста" class="playlist-name">
+                    <textarea placeholder="Описание (необязательно)" class="description"></textarea>
+                    <button class="save-button">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---------   PLAYER     ---------->
+
+    <div class="player">
+        <div class="left-section">
+            <img id="song-image" class="song-image" src="song1.jpg" alt="Обложка">
+            <div class="song-info">
+                <div id="song-name">Песня 1</div>
+                <div id="song-artist">Исполнитель 1</div>
+            </div>
+            <img src="/images/icons/heart-white.png" alt="" class="love-song-icon">
+        </div>
+
+        <div class="player-controls">
+            <button id="shuffle-btn" class="button2">
+                <img src="/images/icons/shuffle.png" alt="Shuffle">
+            </button>
+            <button id="prev-btn" class="button2">
+                <img src="/images/icons/previous-white.png" alt="Previous">
+            </button>
+            <button id="play-btn" class="button2">
+                <img src="/images/icons/play-white.png" alt="Play">
+            </button>
+            <button id="next-btn" class="button2">
+                <img src="/images/icons/next-white.png" alt="Next">
+            </button>
+            <button id="repeat-btn" class="button2">
+                <img src="/images/icons/repeat-white.png" alt="Repeat">
+            </button>
+        </div>
+
+        <div class="progress-container">
+            <span id="current-time">0:00</span>
+            <input id="progress-bar" type="range" min="0" max="100" value="0">
+            <span id="total-duration">0:00</span>
+        </div>
+
+        <div class="volume-control">
+            <img src="/images/icons/volume.png" alt="">
+            <input id="volume-control" type="range" min="0" max="1" step="0.01" value="0.5">
+        </div>
+    </div>
+
+    <audio id="audio-player" src="song1.mp3"></audio>
+
+</body>
+
+</html>

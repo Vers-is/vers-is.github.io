@@ -1,0 +1,239 @@
+/* ARTISTS WINDOW */
+.modal-artists {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-artists-content {
+    background: var(--transparent-background);
+    padding: 5vh 2vw;
+    border-radius: 20px;
+    border: solid 1px var(--transparent-accent);
+    width: 60%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.close:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.artist-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#artistName {
+    font-size: 28px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+#artistImage {
+    margin-top: 20px;
+    width: 12vw;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--transparent-accent);
+}
+
+.songs-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid-artists-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1vw;
+    width: 100%;
+}
+
+.grid-artist-item {
+    background: linear-gradient(135deg, rgba(171, 166, 166, 0.1), rgba(226, 226, 245, 0.2));
+    align-items: center;
+    padding: 5%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.grid-artist-item:hover {
+    transform: scale(1.05);
+}
+
+
+.track-artist-image {
+    width: 3vw;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.track-info {
+    cursor: pointer;
+    font-size: 12px;
+    color: white;
+}
+
+.track-info:hover {
+    transform: scale(1.05);
+}
+
+.track-artist {
+    font-size: 10px;
+    color: var(--accent);
+}
+
+.item-info-cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.play-icon {
+    width: 2vw;
+    aspect-ratio: 1/1;
+}
+
+.play-icon:hover {
+    transform: scale(1.1);
+}
+
+/* ALBUMS WINDOW */
+
+.modal-album {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-album-content {
+    display: flex;
+    flex-direction: row;
+    border: solid 1px var(--transparent-accent);
+    padding: 5vh 2vw;
+    width: 70%;
+    height: 70%;
+    background: var(--album-bg, var(--transparent-background));
+    border-radius: 20px;
+    position: relative;
+}
+
+.album-info {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#albumImage {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    width: 80%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+#albumName {
+    margin: 20px;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+}
+
+.songs {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-album-container {
+    gap: 1vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+}
+
+.track-artist-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.item-info-cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.album-eminem {
+    --album-bg: linear-gradient(135deg, #702424, #1a0000);
+}
+.album-reload {
+    --album-bg: linear-gradient(135deg, #173e4d, #66939b);
+}
+.album-starboy {
+    --album-bg: linear-gradient(135deg, #7a0000, #000a60);
+}
+.album-graduation {
+    --album-bg: linear-gradient(135deg, #e19553, #8b25a4);
+}

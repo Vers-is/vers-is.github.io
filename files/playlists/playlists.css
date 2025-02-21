@@ -1,0 +1,106 @@
+.title { /* to make it centered */
+    margin-top: 2vh;
+}
+
+.playlists, 
+.favorites,
+.mini-playlist,
+.fav-playlist,
+.content-cover {
+    height: auto;
+    display: flex;
+    width: 100%;
+}
+
+.playlists,
+.fav-playlist,
+.mini-playlist {
+    justify-content: center;
+    align-items: center;
+}
+
+.playlists {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr)); 
+    gap: 2vw;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.content-cover {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2vw;
+}
+
+.fav-playlist {
+    flex-direction: column;
+    width: fit-content;
+    position: relative;
+}
+
+.fav-playlist img:hover,
+.mini-playlist img:hover {
+    filter: brightness(60%);
+    opacity: 0.9;
+}
+
+.fav-playlist:hover, 
+.mini-playlist:hover {
+    transform: scale(1.03);
+}
+
+.fav-playlist img, .mini-playlist img {
+    height: auto;
+    aspect-ratio: 1/1;
+    border: 1px solid #fff;
+    width: 100%;
+}
+
+.fav-playlist img {
+    max-width: 55vh;
+    border-radius: 30px;
+}
+
+.mini-playlist img {
+    max-width: 28vh;
+    height: auto;
+    border-radius: 25px;
+}
+
+p {
+    text-align: center;
+}
+
+.fav-playlist p {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.mini-playlist p {
+    font-size: 14px;
+}
+
+.mini-playlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.love-icon {
+    position: absolute;
+    top: 3vh;
+    right: 2vw;
+    width: 30px;
+    height: auto;
+    aspect-ratio: 1/1;
+    background: url('/images/icons/heart-white-painted.png') no-repeat center/contain;
+    z-index: 10;
+}
+
+/* .fav-info {
+    margin-left: -10px;
+    font-size: 12px;
+} */
+
